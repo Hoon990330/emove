@@ -1,0 +1,194 @@
+:root {
+    --bg-color: #e1e1e1;
+    --label-bg: #e1e1e1;
+    --highlight-color: rgb(208, 45, 45);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Code Pro', monospace;
+    background-color: var(--bg-color);
+    font-family: 'Source Code Pro', monospace;
+    background-color: var(--bg-color);
+    transition: background-color 1s ease;
+}
+.input-wrapper,
+.label,
+.highlight {
+    transition: background-color 1s ease, color 1s ease;
+}
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    position: fixed; 
+    top: 20px; 
+    left: 0;
+    width: 100%;
+    padding: 0 20px; 
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800; 
+}
+
+.about {
+    font-size: 25px;
+    font-weight: 800; 
+    text-decoration: none;
+    color: black;
+    transition: opacity 0.3s;
+}
+
+.about:hover {
+    opacity: 0.6;
+}
+
+
+/* input box design */
+.input-section {
+    position: fixed;
+    bottom: 20px; 
+    left: 20px; 
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    color: #000000;
+}
+
+.input-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid #000000;  
+    border-radius: 10px;
+    padding: 3px 0px;
+    background-color: var(--bg-color);  
+    opacity: 0.9;
+}
+
+.input-box {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    color: #000000;
+    width: 100%;  
+    min-width: 100px; 
+    max-width: 100%;
+    height: 30px;
+    text-align: center;
+    padding: 4px;
+    margin-left: 4px; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+.input-wrapper.movement-wrapper {
+    width: 300px; 
+}
+
+.input-wrapper.emotion-wrapper {
+    width: 200px;
+}
+
+.label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background-color: var(--label-bg);  
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.clear-btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #000000;
+    cursor: pointer;
+    margin-left: auto;  
+    margin-right: 10px;  
+    transition: transform 0.3s ease, font-weight 0.3s ease;
+}
+
+.clear-btn:hover {
+    transform: rotate(360deg); 
+    font-weight: 1000; 
+}
+
+
+/* emotion/ movement-list */
+.emotion-list {
+    position: absolute;
+    bottom: 55px; 
+    left: 80px; 
+    pointer-events: auto;
+}
+
+.movement-list {
+    position: absolute;
+    bottom: 55px; 
+    left: 425px; 
+    pointer-events: auto;
+}
+
+.emotion-list p, .movement-list p {
+    line-height: 2;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace; 
+    font-size: 16px; 
+    font-weight: 400; 
+    color: black;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.emotion-list.show p, .movement-list.show p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.emotion-list.show p:nth-child(1), .movement-list.show p:nth-child(1) { transition-delay: 0s; }
+.emotion-list.show p:nth-child(2), .movement-list.show p:nth-child(2) { transition-delay: 0.1s; }
+.emotion-list.show p:nth-child(3), .movement-list.show p:nth-child(3) { transition-delay: 0.2s; }
+.emotion-list.show p:nth-child(4), .movement-list.show p:nth-child(4) { transition-delay: 0.3s; }
+.emotion-list.show p:nth-child(5), .movement-list.show p:nth-child(5) { transition-delay: 0.4s; }
+
+.highlight {
+    color: var(--highlight-color);
+    font-weight: bold;
+}
+
+.motion-section {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+    height: 650px;
+}
+
+#motion-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    transition: opacity 0.3s ease-in-out;
+}
